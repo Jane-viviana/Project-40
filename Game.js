@@ -58,9 +58,14 @@ class Game{
             if(index === player.index){
                 fill("black");
                 textSize(25);
-                text(allPlayers[plr].name, x-25, y+25)
+                text(allPlayers[plr].name,x-25,y+25);
+                
             }
             // Differentiate the main player by printing
+              fill("white");
+                textSize(25);
+                text("Player 1 :"+allPlayers.player1.score,50,50);
+                text("Player 2 :"+ allPlayers.player2.score, 50, 100);
             // the name of the player on the basket. 
 
         }
@@ -95,8 +100,16 @@ class Game{
              }
              fruitsGroup.add(fruits);
              }
-        
-    }
+             if(player.index !== null){
+                for(var i=0; i < fruitGroup.length; i++)
+             
+             if(fruitGroup.get(i).isTouching(players)) { 
+                fruitGroup.get(i).destroy();
+                 player.score =player.score+1; 
+                 player.update();
+             }
+            }
+            }
 
     end(){
        console.log("Game Ended");

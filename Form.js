@@ -38,6 +38,10 @@ class Form{
             this.greeting.style('color', 'white');
             this.greeting.style('font-size', '100px');
         });
-
+      
+        this.reset.mousepressed(() => {
+            player.updateCount(0);
+            game.update(0);
+        })
     }
 }
